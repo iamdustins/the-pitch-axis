@@ -44,6 +44,7 @@ export interface LyristDeskState {
   pastedLyrics: string;
   revisionTarget: string;
   requiredKeywords: string;
+  vocalDemeanor: string;
 }
 
 export interface SurgicalSlidersState {

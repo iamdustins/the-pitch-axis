@@ -73,7 +73,8 @@ export default function App() {
       isInstrumental: false,
       pastedLyrics: "",
       revisionTarget: "",
-      requiredKeywords: ""
+      requiredKeywords: "",
+      vocalDemeanor: ""
     },
     surgicalSliders: {
       phoneticWeirdness: 0,
@@ -252,10 +253,11 @@ export default function App() {
         accent: "None",
         isCowriterMode: true,
         isInstrumental: false,
-        pastedLyrics: "",
-        revisionTarget: "",
-        requiredKeywords: ""
-      },
+      pastedLyrics: "",
+      revisionTarget: "",
+      requiredKeywords: "",
+      vocalDemeanor: ""
+    },
       surgicalSliders: {
         phoneticWeirdness: 0,
         styleInfluence: 0,
@@ -593,6 +595,18 @@ export default function App() {
                   placeholder="Words the Architect MUST use..."
                   value={state.lyristDesk.requiredKeywords}
                   onChange={(e) => setState(prev => ({ ...prev, lyristDesk: { ...prev.lyristDesk, requiredKeywords: e.target.value } }))}
+                  className="w-full bg-black/40 border border-white/5 rounded-xl px-4 py-3 text-xs focus:border-white/40 outline-none transition-all resize-none"
+                />
+              </InputGroup>
+            )}
+
+            {!state.lyristDesk.isInstrumental && (
+              <InputGroup label="Vocal Demeanor / Persona (Injection)">
+                <textarea 
+                  rows={2}
+                  placeholder="e.g. Arrogant, Pained, Slick. Architect will interject every ~2 lines."
+                  value={state.lyristDesk.vocalDemeanor}
+                  onChange={(e) => setState(prev => ({ ...prev, lyristDesk: { ...prev.lyristDesk, vocalDemeanor: e.target.value } }))}
                   className="w-full bg-black/40 border border-white/5 rounded-xl px-4 py-3 text-xs focus:border-white/40 outline-none transition-all resize-none"
                 />
               </InputGroup>
